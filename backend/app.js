@@ -11,7 +11,7 @@ dotenv.config({ path: "./.env" });
 
 app.use(cors({
     origin:[process.env.FRONTEND_URL],
-    methods:["POST"],
+    methods:["GET", "POST"],
     credentials:true,
 }));
 
@@ -20,8 +20,8 @@ app.use(express.urlencoded({extended:true}));
 
 dbconnection();
 
-app.use(errorMiddleware);
-
 app.use('/api/v1/reservation',reservation)
+
+app.use(errorMiddleware);
 
 export default app;
