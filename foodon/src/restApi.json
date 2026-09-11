@@ -166,11 +166,6 @@
                 "id": 5,
                 "title": "RESERVATION",
                 "link": "reservation"
-            },
-            {
-                "id": 6,
-                "title": "ADMIN",
-                "link": "admin"
             }
         ]
     

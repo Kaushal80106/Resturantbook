@@ -15,17 +15,6 @@ function Nabar() {
                 <div className="links">
                     {
                         data[0].navbarLinks.map(element => {
-                            if (element.link === 'admin') {
-                                return (
-                                    <span 
-                                        key={element.id}
-                                        onClick={() => navigate('/admin')} 
-                                        style={{ cursor: 'pointer', color: '#ff5733', fontWeight: 'bold' }}
-                                    >
-                                        {element.title}
-                                    </span>
-                                );
-                            }
                             return (
                                 <ScrollLink to={element.link} key={element.id} spy={true} smooth={true} duration={500}>
                                     {element.title}
