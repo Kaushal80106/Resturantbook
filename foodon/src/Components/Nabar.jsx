@@ -25,6 +25,7 @@ function Nabar() {
                     })
                 }
             </div>
+            <button className="menuBtn" onClick={() => window.location.href = '/admin'} style={{marginLeft: "10px", backgroundColor: "#333"}}>ADMIN</button>
             <button className="menuBtn">OUR MENU</button>
         </div>
         <div className="hamburger" onClick={()=>setshow(!show)}>
