@@ -17,34 +17,9 @@ function Reservation() {
   // Table selection state
   const [bookedTables, setBookedTables] = useState([]);
   const [selectedTable, setSelectedTable] = useState(null);
-  const [step, setStep] = useState(1); // 1: Date/Time, 2: Table Selection & Details
+  const [step, setStep] = useState(1);
 
-<<<<<<< HEAD
-      const handleReservation = async (e) =>{
-        e.preventDefault();
-        try {
-            const {data} = await axios.post(`${window.location.origin}/api/v1/reservation/send`,
-              {firstName, lastName, email, phone, date, time},
-              {
-                headers:{
-                  "Content-Type":"application/json"
-                },
-                withCredentials:true
-              }
-            );
-            toast.success(data.message);
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setDate("");
-            setPhone("");
-            setTime("");
-            navigate("/success");
-            
-        } catch (error) {
-            toast.error(error.response.data.message);
-=======
-  const totalTables = Array.from({ length: 10 }, (_, i) => i + 1); // Tables 1-10
+  const totalTables = Array.from({ length: 10 }, (_, i) => i + 1);
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -61,7 +36,7 @@ function Reservation() {
       const { data } = await axios.get(`${backendUrl}/api/v1/reservation/availability?date=${date}&time=${time}`);
       setBookedTables(data.bookedTables);
       setStep(2);
-      setSelectedTable(null); // Reset selection if they change date/time
+      setSelectedTable(null);
       toast.success("Availability checked! Select a table.");
     } catch (error) {
       toast.error("Failed to check availability.");
@@ -97,7 +72,6 @@ function Reservation() {
             "Content-Type": "application/json"
           },
           withCredentials: true
->>>>>>> 12a49de (feat: update restaurant booking system)
         }
       );
       toast.success(data.message);
@@ -175,16 +149,16 @@ function Reservation() {
                       const isBooked = bookedTables.includes(tableNum);
                       const isSelected = selectedTable === tableNum;
                       
-                      let bgColor = '#e0e0e0'; // Available
+                      let bgColor = '#e0e0e0';
                       let textColor = '#333';
                       let cursor = 'pointer';
 
                       if (isBooked) {
-                        bgColor = '#ff4d4d'; // Booked (Red)
+                        bgColor = '#ff4d4d';
                         textColor = '#fff';
                         cursor = 'not-allowed';
                       } else if (isSelected) {
-                        bgColor = '#4caf50'; // Selected (Green)
+                        bgColor = '#4caf50';
                         textColor = '#fff';
                       }
 
