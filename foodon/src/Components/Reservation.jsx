@@ -32,7 +32,7 @@ function Reservation() {
     
     setLoading(true);
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+      const backendUrl = (import.meta.env.VITE_BACKEND_URL || "http://localhost:4000").replace(/\/$/, "");
       const { data } = await axios.get(`${backendUrl}/api/v1/reservation/availability?date=${date}&time=${time}`);
       setBookedTables(data.bookedTables);
       setStep(2);
@@ -64,7 +64,7 @@ function Reservation() {
 
     setLoading(true);
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+      const backendUrl = (import.meta.env.VITE_BACKEND_URL || "http://localhost:4000").replace(/\/$/, "");
       const { data } = await axios.post(`${backendUrl}/api/v1/reservation/send`,
         { firstName, lastName, email, phone, date, time, tableNumber: selectedTable },
         {

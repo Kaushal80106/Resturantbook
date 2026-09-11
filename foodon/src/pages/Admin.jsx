@@ -22,7 +22,7 @@ function Admin() {
   const fetchReservations = async () => {
     setLoading(true);
     try {
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+      const backendUrl = (import.meta.env.VITE_BACKEND_URL || "http://localhost:4000").replace(/\/$/, "");
       const { data } = await axios.get(`${backendUrl}/api/v1/reservation/all`);
       setReservations(data.reservations);
     } catch (error) {
