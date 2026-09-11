@@ -5,6 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 import Home from "./pages/Home.jsx"
 import NotFound from "./pages/NotFound.jsx"
 import Success from "./pages/Success.jsx"
+import Admin from "./pages/Admin.jsx"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/success" element={<Success/>}/>
+      <Route path="/admin" element={<Admin/>}/>
       <Route path="*" element={<NotFound />}/>
 
     </Routes>

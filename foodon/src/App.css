@@ -875,17 +875,19 @@ footer .container .banner .right {
   width: 400px;
   background: #fff;
   height: 100%;
+  min-height: 100%;
+  height: auto;
   padding: 20px;
   box-shadow: -1px 0px 37px 0px rgba(152, 87, 191, 0.75);
   -webkit-box-shadow: -1px 0px 37px 0px rgba(152, 87, 191, 0.75);
   -moz-box-shadow: -1px 0px 37px 0px rgba(152, 87, 191, 0.75);
 }
-.reservation .container .banner .reservation_form_box form div {
+.reservation .container .banner .reservation_form_box form .input-row {
   display: flex;
   gap: 25px;
   margin-bottom: 20px;
 }
-.reservation .container .banner .reservation_form_box form div input {
+.reservation .container .banner .reservation_form_box form .input-row input {
   flex: 1;
   padding: 5px;
   font-size: 16px;
@@ -924,7 +926,7 @@ footer .container .banner .right {
   border-bottom: 1px solid #333;
   background: transparent;
 }
-.reservation .container .banner .reservation_form_box form div input:focus,
+.reservation .container .banner .reservation_form_box form .input-row input:focus,
 .reservation
   .container
   .banner
@@ -945,7 +947,7 @@ footer .container .banner .right {
   .banner
   .reservation_form_box
   form
-  div
+  .input-row
   input::placeholder {
   color: #222;
 }
