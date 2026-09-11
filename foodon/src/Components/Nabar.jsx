@@ -22,6 +22,12 @@ function Nabar() {
                             );
                         })
                     }
+                    <span 
+                        onClick={() => navigate('/admin')} 
+                        style={{ cursor: 'pointer', color: '#ff5733', fontSize: '20px', fontWeight: 'bold', letterSpacing: '1.4px' }}
+                    >
+                        ADMIN
+                    </span>
                 </div>
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                     <button 
