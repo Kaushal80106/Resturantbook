@@ -63,46 +63,39 @@ Your app should now be running! Open `http://localhost:5173` in your browser.
 
 ---
 
-## 🚀 Deployment Guide (100% Vercel)
-
-We will deploy both the Frontend and Backend to Vercel for a seamless, unified hosting experience!
+## 🚀 Deployment Guide (Railway Backend + Vercel Frontend)
 
 ### Step 1: Database (MongoDB Atlas)
 1. Ensure your MongoDB Atlas cluster is running.
-2. In your Atlas **Network Access** settings, make sure you allow access from anywhere (`0.0.0.0/0`) so Vercel can reach your database.
+2. In Atlas **Network Access**, ensure **`0.0.0.0/0` (Allow Access from Anywhere)** is added.
 
-### Step 2: Push to GitHub
-If you are having trouble pushing to GitHub, run these commands in your terminal from the root folder (`RestuarantBooking`):
+### Step 2: Push Latest Code to GitHub
 ```bash
 git add .
-git commit -m "Ready for deployment"
-git push origin main
+git commit -m "Deploy readiness for Railway and Vercel"
+git push origin main --force
 ```
-*(Note: I have added a root `.gitignore` file to ensure you don't accidentally push large `node_modules` folders, which is usually the reason Git pushes fail!)*
 
-### Step 3: Backend Deployment (Vercel)
-1. Create an account on [Vercel](https://vercel.com) and click **Add New > Project**.
-2. Import your GitHub repository.
-3. Edit the **Root Directory** to `backend`.
-4. The Build settings will automatically detect the new `vercel.json` file I created for you.
-5. Under **Environment Variables**, add:
-   - `MONGO_URI`: `your_mongodb_connection_string`
-   - `FRONTEND_URL`: (Leave this blank for now).
-6. Click **Deploy**. Copy the backend URL Vercel gives you (e.g., `https://my-backend.vercel.app`).
+### Step 3: Deploy Backend to Railway
+1. Go to [railway.app](https://railway.app) and log in with GitHub.
+2. Click **New Project** → **Deploy from GitHub repo**.
+3. Select your repository (**`Resturantbook`**).
+4. Click **Add Variables** and configure:
+   - `MONGO_URI`: `your_mongodb_atlas_connection_string`
+   - `FRONTEND_URL`: *(Leave empty for now, update after Step 4)*
+5. Go to **Settings** → **Root Directory** → set to `backend`.
+6. Go to **Settings** → **Networking** → Click **Generate Domain**.
+7. Copy your new Railway domain (e.g. `https://resturantbook-production.up.railway.app`).
 
-### Step 4: Frontend Deployment (Vercel)
-1. Go back to your Vercel dashboard and click **Add New > Project**.
-2. Import the exact same GitHub repository again.
-3. Edit the **Root Directory** to `foodon`.
-4. Vercel will automatically detect that you are using Vite.
-5. Under **Environment Variables**, add:
-   - `VITE_BACKEND_URL`: Paste the backend URL you copied in Step 3.
-6. Click **Deploy**. Vercel will give you a live frontend URL (e.g., `https://my-restaurant.vercel.app`).
+### Step 4: Deploy Frontend to Vercel
+1. Go to [vercel.com](https://vercel.com) → **Add New > Project**.
+2. Select your repository (**`Resturantbook`**).
+3. **Root Directory**: `foodon`.
+4. Under **Environment Variables**, add:
+   - `VITE_BACKEND_URL`: *(Paste your Railway backend URL from Step 3)*
+5. Click **Deploy**. Copy your live Vercel URL (e.g. `https://resturantbook-frontend.vercel.app`).
 
-### Step 5: Finalize Connection
-1. Go back to your Backend project in Vercel.
-2. Go to Settings > Environment Variables.
-3. Update the `FRONTEND_URL` to match your new frontend Vercel URL exactly (`https://my-restaurant.vercel.app`).
-4. **Redeploy** the backend so the new CORS security policy takes effect.
-
-**You're done! Your interactive restaurant booking system is live.**
+### Step 5: Final CORS Link
+1. Go back to Railway → Project → Variables.
+2. Update `FRONTEND_URL` to your live Vercel URL (e.g. `https://resturantbook-frontend.vercel.app`).
+3. Railway automatically redeploys. Your MERN app is live!
