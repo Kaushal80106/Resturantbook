@@ -1,5 +1,7 @@
 # Restaurant Booking System
 
+🌐 **Live Demo**: [https://resturantbook.vercel.app/](https://resturantbook.vercel.app/)
+
 A full-stack MERN (MongoDB, Express, React, Node.js) web application that allows customers to browse the menu and seamlessly book tables. It features an interactive, movie-theater-style table selection grid, smart time-slot locking, and a dedicated admin dashboard for managing reservations.
 
 ## ✨ Features
